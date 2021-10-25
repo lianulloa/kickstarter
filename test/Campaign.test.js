@@ -25,6 +25,8 @@ beforeEach(async () => {
     gas: '1000000'
   })
 
+  console.log("factory", factory.options.address)
+
   campaignAddress = (await factory.methods.getDeployedCampaigns().call())[0]
   campaign = await new web3.eth.Contract(
     JSON.parse(compiledCampaign.interface),
