@@ -29,7 +29,7 @@ contract Campaign {
     uint public minimumContribution;
     // Request[] public requests;
     uint public requestIndex;
-    mapping(uint => Request) requests;
+    mapping(uint => Request) public requests;
     mapping(address => bool) public approvers;
     uint public approversCount;
     
