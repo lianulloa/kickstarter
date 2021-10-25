@@ -25,8 +25,8 @@ contract Campaign {
     
     address public manager;
     uint public minimumContribution;
-    mapping(address => bool) public approvers;
     Request[] public requests;
+    mapping(address => bool) public approvers;
     uint public approversCount;
     
      modifier restricted {
@@ -83,6 +83,20 @@ contract Campaign {
         
         
     }
-    
 
+    function getSummary() public view returns (
+        uint, uint, uint, uint, address
+    ) {
+        return (
+            minimumContribution,
+            this.balance,
+            requests.length,
+            approversCount,
+            manager
+        );
+    }
+    
+    function getRequestCount() public view returns (uint) {
+        return requests.length;
+    }
 }
